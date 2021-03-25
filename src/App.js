@@ -5,7 +5,8 @@ import {SearchForm} from './components/SearchForm'
 import './App.css';
 import 'bulma/css/bulma.css'
 
-function App() {
+class App extends Component{
+
   state ={results:[]}
 
   _handleResults=(results)=> {
@@ -18,12 +19,12 @@ function App() {
     })
   }
 
-
+render(){
   return (
     <div className="App">
       <Title>Search movies</Title>
       <div className='SearchForm-wrapper'>
-        <SearchForm onResults= {this_handleResults} />
+        <SearchForm onResults= {this._handleResults} />
       </div>
       {this.state.results.length === 0 
         ?<p>Sin resultados </p>
@@ -31,6 +32,7 @@ function App() {
       }
     </div>
   );
+ }
 }
 
 export default App;
